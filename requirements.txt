@@ -1,6 +1,5 @@
 pytest
 selenium
-smtplib
 schedule
 os
 time
