@@ -16,10 +16,15 @@ def job():
     driver.get(url)
 
     # to remove the cookie spam
-    search = driver.find_element_by_xpath(
-        '//*[@id="pecr-cookie-banner-wrapper"]/div/div[1]/div/div[2]/button[1]'
-    )
-    search.send_keys(Keys.RETURN)
+    xPaths = [
+        '//*[@id="pecr-cookie-banner-wrapper"]/div/div[1]/div/div[2]/button[1]',
+        "/html/body/div[3]/div[1]/div/div[1]/div/div[2]/button[1]",
+        "/html/body/div[3]/div[1]/div/div[1]/div/div[2]/button[1]",
+        '//*[@id="pecr-cookie-banner-wrapper"]/div/div[1]/div/div[2]/button[1]',
+    ]
+    for x in xPaths:
+        search = driver.find_element_by_xpath(x)
+        search.send_keys(Keys.RETURN)
 
     # look for add to basket
     available = driver.find_elements_by_id("button--add-to-basket")
@@ -30,13 +35,13 @@ def job():
     else:
         print("still unavailable")
 
-    time.sleep(60)
+    time.sleep(20)
     driver.close()
 
 
 # scheduling process/setup
-# schedule.every(10).seconds.do(job)
-schedule.every(1).minutes.do(job)
+schedule.every(10).seconds.do(job)
+# schedule.every(1).minutes.do(job)
 while True:
     schedule.run_pending()
     time.sleep(1)
