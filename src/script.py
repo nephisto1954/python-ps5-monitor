@@ -8,7 +8,7 @@ from ps5Email import send_email_alert
 
 def job():
 
-    op = webdriver.ChromeOptions()
+    op = webdriver.options()
     op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     op.add_argument("--headless")
     op.add_argument("--no-sandbox")
@@ -58,6 +58,3 @@ schedule.every(10).seconds.do(job)
 while True:
     schedule.run_pending()
     time.sleep(1)
-
-if __name__ == "__main__":
-    job()
