@@ -1,5 +1,4 @@
 pytest
 selenium
 schedule
-os
 time
