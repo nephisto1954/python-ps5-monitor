@@ -1,12 +1,10 @@
 import smtplib
-import imghdr
-from decouple import config
+
+# import imghdr
 from email.message import EmailMessage
 
-EMAIL_ADDRESS = config("EMAIL")
-PASSWORD = config("PASSWORD")
-USER = config("USER")
-print(USER)
+EMAIL_ADDRESS = os.environ.get("EMAIL")
+PASSWORD = os.environ.get("PASSWORD")
 
 msg = EmailMessage()
 msg["Subject"] = "PS5"
