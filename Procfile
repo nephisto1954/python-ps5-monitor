@@ -1,1 +1,1 @@
-web: src script
+web: src/script
