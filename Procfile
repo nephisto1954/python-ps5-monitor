@@ -1,1 +1,1 @@
-web: --pythonpath src script.py
+web: gunicorn --pythonpath src script.py
