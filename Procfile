@@ -1,1 +1,1 @@
-web: src/script
+web: --pythonpath src script.py
